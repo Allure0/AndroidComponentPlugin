@@ -1,0 +1,44 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.tools.build:gradle:3.0.0'
+    //gradle sdk
+    compile gradleApi()
+    //groovy sdk
+    compile localGroovy()
+}
+repositories {
+    mavenCentral()
+}
+
+
+publish {
+    userOrg = 'allure0'
+    groupId = 'com.allure.plugin'
+    artifactId = 'Component'
+    publishVersion = '1.0.0'
+    desc = 'AndroidComponent Gradle Plugin'
+    website = 'https://github.com/Allure0'
+}
+
+
+
+//uploadArchives{
+//    repositories{
+//        mavenDeployer{
+//
+//            //提交到远程服务器：
+////            // repository(url: "http://www.xxx.com/repos") {
+////            //    authentication(userName: "admin", password: "admin")
+////            // }
+//
+//            repository(url:uri('/Users/mac/Downloads/ttt'))
+//            pom.groupId = 'com.allure.plugin' // 组名
+//            pom.artifactId = 'Component' // 插件名
+//            pom.version = '1.0.0' // 版本号
+//        }
+//    }
+//}
